@@ -35,6 +35,19 @@ public class Piano extends World
      */
     public void act()
     {
+        //Only show a message when we are in the bounds of the array
+        showText("Array index is: " + frames / 60, 400, 250);
+        
+        //Only say hello when we are in the bounds of the array
+        if (frames / 60 < 10)
+        {
+           //Say hello to everyone in class.
+         showText("Hello " + peopleInClass[frames / 60], 400, 170); 
+        }
+        
+        
+        
+        
         // Track frames
         frames += 1;
         //show the frames
