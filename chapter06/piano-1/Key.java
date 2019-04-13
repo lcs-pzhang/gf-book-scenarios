@@ -26,8 +26,8 @@ public class Key extends Actor
     {
         //Animate the piano key being pressed
         //Condition 1 - is the "g" key being pressed
-        //Condition 2 - was the "g" key already down
-        if ( Greenfoot.isKeyDown("g") &&  keyAlreadyDown == false )
+        //Condition 2 - the key was NOT already down
+        if ( Greenfoot.isKeyDown("g") &&  !keyAlreadyDown)
         {
             //Key is down
             setImage("white-key-down.png");
@@ -39,7 +39,7 @@ public class Key extends Actor
         //Condtion 1 - The key was down the last time act() fired
         //Condition 2 = The "g" has been released (no longer pressed)
         
-        if ( (keyAlreadyDown == true) && Greenfoot.isKeyDown("g") == false ) 
+        if ( (keyAlreadyDown == true) && !Greenfoot.isKeyDown("g")) 
         {
             //Key is up
             setImage("white-key.png");
