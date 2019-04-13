@@ -26,5 +26,14 @@ public class Key extends Actor
             setImage("white-key.png");
         }
     }
+    
+    /**
+     * Play the note of this key
+     */
+    public void play()
+    {
+      Greenfoot.playSound("3a.wav");  
+    }
+    
 }
 
