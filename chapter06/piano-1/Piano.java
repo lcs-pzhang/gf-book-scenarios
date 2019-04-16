@@ -13,12 +13,13 @@ public class Piano extends World
      * (we can use these anywhere in the class)
      */
     int frames;
-    // create the array: list
-    String[] peopleInClass = {"Julio", "Liam", "Dima", "Simon", "Eric", "Osman", 
-            "Phillip", "Joven", "Nick", "Gordon", "Jieun", "Selena", "Jason", "Sam", 
-            "Joe", "Jeff"};
-
-    //Create 2 arrays
+    // create the array: This one is for the black keys
+    String[] blackKeys = {"3c#", "3d#", "", "3f#", "3g#", "3a#", 
+            "", "4c#", "4d#", "", "4f#", ""};
+    // This one for the soundfiles for the black keys
+    String[] blackNotes = {"3w", "3e", "", "3t", "3y", "3u", "", "3o", "3p",
+        "", "3]", ""};
+        
     //First one traks the keyboard keys that we'll use for white piano keys
     String[] whiteKeys = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ";",
             "'", "\\" };
@@ -58,8 +59,7 @@ public class Piano extends World
             //Object to add, horizontal position, vertical position
             addObject(aKey, 54 + position * 63, 140);
 
-            //Say hello to everyone in class.
-            //showText("Hello " + peopleInClass[frames / 60], 400, 170); 
+            
         }
 
         // Track frames

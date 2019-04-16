@@ -11,18 +11,20 @@ public class Key extends Actor
     //Will contain the key and sound file that this instance of the class will play
     private String key;
     private String sound;
+    private boolean whiteKey;
 
     /**
      * Create a new key.
      */
-    public Key(String keyName, String soundFile)
+    public Key(String keyName, String soundFile, boolean isKeyWhite)
     {
         //No key has been pressed
         keyAlreadyDown = false;
-        
+
         //Set the instance variable using parameters
         key = keyName;
         sound = soundFile;
+        whiteKey = isKeyWhite;
     }
 
     /**
@@ -39,6 +41,11 @@ public class Key extends Actor
             setImage("white-key-down.png");
             play();
             keyAlreadyDown = true;
+        } else {
+            //Key is down
+            setImage("black-key-down.png");
+            play();
+            keyAlreadyDown = true;
         }
 
         //Stop showing the key being pressed.
@@ -49,6 +56,10 @@ public class Key extends Actor
         {
             //Key is up
             setImage("white-key.png");
+            keyAlreadyDown = false;
+        } else {
+            //Key is up
+            setImage("black-key.png");
             keyAlreadyDown = false;
         }
     }
