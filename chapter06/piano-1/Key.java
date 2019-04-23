@@ -41,12 +41,7 @@ public class Key extends Actor
             setImage("white-key-down.png");
             play();
             keyAlreadyDown = true;
-        } else {
-            //Key is down
-            setImage("black-key-down.png");
-            play();
-            keyAlreadyDown = true;
-        }
+        } 
 
         //Stop showing the key being pressed.
         //Condtion 1 - The key was down the last time act() fired
@@ -55,15 +50,11 @@ public class Key extends Actor
         if ( (keyAlreadyDown == true) && !Greenfoot.isKeyDown(key)) 
         {
             //Key is up
-            setImage("white-key.png");
-            keyAlreadyDown = false;
-        } else {
-            //Key is up
             setImage("black-key.png");
             keyAlreadyDown = false;
-        }
-    }
+        } 
 
+    }
     /**
      * Play the note of this key
      */
@@ -71,6 +62,7 @@ public class Key extends Actor
     {
         Greenfoot.playSound(sound + ".wav");  
     }
-
 }
+
+
 

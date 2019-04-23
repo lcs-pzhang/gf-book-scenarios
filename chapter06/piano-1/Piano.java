@@ -14,18 +14,18 @@ public class Piano extends World
      */
     int frames;    
     //First one traks the keyboard keys that we'll use for white piano keys
-    String[] whiteKeys = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ";",
+   String[] whiteKeys = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ";",
             "'", "\\" };
     //Second array tracks the sound files for each note
-    String[] whiteNotes = {"3c", "3d", "3e", "3f", "3g", "3a", "3b", "4c",
+   String[] whiteNotes = {"3c", "3d", "3e", "3f", "3g", "3a", "3b", "4c",
             "4d", "4e", "4f", "4g"};
-            
+
     // create the array: This one is for the black keys
-    String[] blackKeys = {"3c#", "3d#", "", "3f#", "3g#", "3a#", 
+   String[] blackKeys = {"3c#", "3d#", "", "3f#", "3g#", "3a#", 
             "", "4c#", "4d#", "", "4f#", ""};
     // This one for the soundfiles for the black keys
     String[] blackNotes = {"3w", "3e", "", "3t", "3y", "3u", "", "3o", "3p",
-        "", "3]", ""};
+            "", "3]", ""};
 
     /**
      * Make the piano.
@@ -34,46 +34,32 @@ public class Piano extends World
     {
         super(800, 340, 1);
         frames = 0;
-    }
 
-    /**
-     * act
-     * (gets called repeatedly to create animation)
-     */
-    public void act()
-    {
+        // First draw all of the white piano keys on the screen
+        for (int index = 0; index < whiteKeys.length; index +=1)
+        {
+            // Create a new object
+            Key newKey = new Key(whiteKeys[index], whiteNotes[index], true);
 
-        //Only say hello when we are in the bounds of the array
-        //array
-        int position = frames / 60;
-        //Every FULL SECOND when the position is less than count of items in
-        //the array
-        if ( (frames % 60 == 0) && (position < whiteKeys.length))
-        {
-            //Only show a message when we are in the bounds of the array
-            showText("Array index is: " + position, 400, 250);
-            
-            //Create an object to add to the world
-            Key aKey = new aKey(whiteKeys[position], whiteNotes[position]);
-            //NOw actually add the object to the world
-            //Object to add, horizontal position, vertical position
-            addObject(aKey, 54 + position * 63, 140);
+            //Add the key object to the scenario
+            addObject(newKey, 54 + 63 * index, 140);
         }
-        
-        if ( (frames % 60 == 0) && (position < blackKeys.length))
+
+        //Now draw all of the black piano keys on the screen
+        for (int index = 0; index < blackKeys.length; index +=1)
         {
-          //Create an object to add to the world
-            Key aKey = new aKey(blackKeys[position], blackNotes[position]);
-            //NOw actually add the object to the world
-            //Object to add, horizontal position, vertical position
-            addObject(aKey, 85 + position * 63, 86);
-          
+            //Only add a black key if there is a computer keyboard key
+            //Set in the blackKeys array at this index
+            if (blackKeys[index] !="")
+            {
+                //Create a new black key object
+                Key newKey = new Key(blackKeys[index], blackNotes[index], true);
+
+                //Add the key object to the scenario
+                addObject(newKey, 85 + 63 * index, 86);
+            }
         }
-        
-        
-        // Track frames
-        frames += 1;
-        //show the frames
-        //showText("" + frames, 100, 100);
+
     }
+    
 }
