@@ -26,6 +26,8 @@ public class Block extends Actor
     private void move()
     {
         setLocation(getX()+delta, getY());
+        
+     
     }
     
     /**
@@ -36,6 +38,13 @@ public class Block extends Actor
         if (isAtEdge()) 
         {
             delta = -delta;  // reverse direction
+            
+            // Add a new leaf object to the world
+        // 1. Add a reference to the world
+        World myWorld = getWorld();
+        // 2. Use the object reference to call, or use, a method on the World
+        //object.
+        myWorld.addObject(new Leaf(), 100, 100);
         }
     }
     

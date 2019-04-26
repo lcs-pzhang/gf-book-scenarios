@@ -17,4 +17,9 @@ public class Space extends World
         getBackground().setColor(Color.BLACK);
         getBackground().fill();
     }
+    
+    private setup()
+    {
+        
+    }
 }

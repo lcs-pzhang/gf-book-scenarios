@@ -25,6 +25,11 @@ public class Key extends Actor
         key = keyName;
         sound = soundFile;
         whiteKey = isKeyWhite;
+        
+        if ( isKeyWhite == false)
+        {
+            setImage("black-key.png");
+        }
     }
 
     /**
@@ -55,6 +60,18 @@ public class Key extends Actor
         } 
 
     }
+    
+    /**
+     * PLay the note of this key
+     */
+    private void keyDown()
+    {
+        if ( isWhiteKey == true)
+        {
+            
+        }
+    }
+    
     /**
      * Play the note of this key
      */
