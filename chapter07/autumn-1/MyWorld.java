@@ -23,5 +23,6 @@ public class MyWorld extends World
     private void setUp()
     {
         addObject(new Block(), 300, 200);
+        addObject(new Leaf(), 200, 200);
     }
 }
