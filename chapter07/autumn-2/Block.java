@@ -47,7 +47,7 @@ public class Block extends Actor
      */
     private void checkMouseClick()
     {
-        if (Greenfoot.mouseClicked(this)) 
+        if (Greenfoot.mouseClicked(null)) 
         {
             // When null is the argument, Greenfoot respons to a mouse click
             //anywhere on the screen.
@@ -58,11 +58,16 @@ public class Block extends Actor
             
             World myWorld = getWorld();
             
-            //Make a message show on screen when the mouse is clicked.
-            myWorld.showText("mouse was clicked", 200, 200);
+            //2. Get a list that has object references to all the leaf objects
+            //in the world
+            // TYPE     NAME            CLASS THAT WE NEED OBJECTS OF
             
             List<Leaf> leaves = myWorld.getObjects(Leaf.class); 
-
+            
+            //3. Itereate thorugh the list of leaf objects
+            //Each loop will provide an object reference.
+            // "For each leaf in the leaves list..."
+            
             for (Leaf leaf : leaves)
             {
                 leaf.changeImage();
