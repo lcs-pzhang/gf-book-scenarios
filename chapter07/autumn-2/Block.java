@@ -1,4 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*; 
+// In order to use a List in Java, we must import it.
 import java.util.List;
 
 /**
@@ -46,10 +47,21 @@ public class Block extends Actor
      */
     private void checkMouseClick()
     {
-        if (Greenfoot.mouseClicked(null)) 
+        if (Greenfoot.mouseClicked(this)) 
         {
-            World world = getWorld();
-            List<Leaf> leaves = world.getObjects(Leaf.class);
+            // When null is the argument, Greenfoot respons to a mouse click
+            //anywhere on the screen.
+            //When this is the arguemnt, Greenfoot respons to a mouse click
+            //only on the block.
+            
+            // 1. Get an object reference
+            
+            World myWorld = getWorld();
+            
+            //Make a message show on screen when the mouse is clicked.
+            myWorld.showText("mouse was clicked", 200, 200);
+            
+            List<Leaf> leaves = myWorld.getObjects(Leaf.class); 
 
             for (Leaf leaf : leaves)
             {

@@ -53,7 +53,7 @@ public class Piano extends World
             if (blackKeys[index] !="")
             {
                 //Create a new black key object
-                Key newKey = new Key(blackKeys[index], blackNotes[index], true);
+                Key newKey = new Key(blackKeys[index], blackNotes[index], false);
 
                 //Add the key object to the scenario
                 addObject(newKey, 85 + 63 * index, 86);
